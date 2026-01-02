@@ -14,6 +14,8 @@ namespace AplicacionConsola.Modelo
         public string rareza { get; set; }
         public decimal precio  { get; set; }
 
+        public int baja { get; set; }
+
         public ObjetoEncantado(int id, string nombre, int poder, string rareza, decimal precio) {
             this.id = id;
             this.name = nombre;

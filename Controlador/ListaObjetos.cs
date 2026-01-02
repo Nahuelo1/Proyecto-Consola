@@ -33,7 +33,10 @@ namespace AplicacionConsola.Controlador
 
             foreach (ObjetoEncantado item in listaObjetos)
             {
-                tablaObjetos.AddRow(item.id.ToString(), item.name, item.poder.ToString(), item.rareza.ToString(), item.precio.ToString());
+                if(item.baja == 0)
+                {
+                    tablaObjetos.AddRow(item.id.ToString(), item.name, item.poder.ToString(), item.rareza.ToString(), item.precio.ToString());
+                }
             }
 
             AnsiConsole.Write(tablaObjetos);
