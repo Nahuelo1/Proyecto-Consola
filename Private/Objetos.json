@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "nombre": "Espada del Alba",
+    "name": "Espada del Alba",
     "poder": 1250,
     "rareza": "comun",
     "precio": 150.0,
@@ -9,7 +9,7 @@
   },
   {
     "id": 2,
-    "nombre": "Amuleto de la Niebla",
+    "name": "Amuleto de la Niebla",
     "poder": 980,
     "rareza": "poco comun",
     "precio": 320.5,
@@ -17,7 +17,7 @@
   },
   {
     "id": 3,
-    "nombre": "Báculo del Sabio Antiguo",
+    "name": "Báculo del Sabio Antiguo",
     "poder": 7200,
     "rareza": "raro",
     "precio": 4200.0,
@@ -25,7 +25,7 @@
   },
   {
     "id": 4,
-    "nombre": "Anillo de Vitalidad",
+    "name": "Anillo de Vitalidad",
     "poder": 450,
     "rareza": "comun",
     "precio": 95.75,
@@ -33,7 +33,7 @@
   },
   {
     "id": 5,
-    "nombre": "Capa de Sombras",
+    "name": "Capa de Sombras",
     "poder": 3600,
     "rareza": "poco comun",
     "precio": 1800.0,
@@ -41,7 +41,7 @@
   },
   {
     "id": 6,
-    "nombre": "Martillo del Titán",
+    "name": "Martillo del Titán",
     "poder": 18500,
     "rareza": "epico",
     "precio": 14500.0,
@@ -49,7 +49,7 @@
   },
   {
     "id": 7,
-    "nombre": "Daga Susurrante",
+    "name": "Daga Susurrante",
     "poder": 2100,
     "rareza": "poco comun",
     "precio": 950.0,
@@ -57,7 +57,7 @@
   },
   {
     "id": 8,
-    "nombre": "Escudo del Guardián",
+    "name": "Escudo del Guardián",
     "poder": 5400,
     "rareza": "raro",
     "precio": 3100.0,
@@ -65,7 +65,7 @@
   },
   {
     "id": 9,
-    "nombre": "Libro de Hechizos Prohibidos",
+    "name": "Libro de Hechizos Prohibidos",
     "poder": 11200,
     "rareza": "epico",
     "precio": 9800.0,
@@ -73,7 +73,7 @@
   },
   {
     "id": 10,
-    "nombre": "Botas del Viento",
+    "name": "Botas del Viento",
     "poder": 1300,
     "rareza": "poco comun",
     "precio": 670.0,
@@ -81,7 +81,7 @@
   },
   {
     "id": 11,
-    "nombre": "Yelmo del Dragón Rojo",
+    "name": "Yelmo del Dragón Rojo",
     "poder": 8900,
     "rareza": "raro",
     "precio": 5600.0,
@@ -89,7 +89,7 @@
   },
   {
     "id": 12,
-    "nombre": "Collar de Almas",
+    "name": "Collar de Almas",
     "poder": 15600,
     "rareza": "epico",
     "precio": 12000.0,
@@ -97,7 +97,7 @@
   },
   {
     "id": 13,
-    "nombre": "Guantes del Forjador",
+    "name": "Guantes del Forjador",
     "poder": 2200,
     "rareza": "comun",
     "precio": 410.0,
@@ -105,7 +105,7 @@
   },
   {
     "id": 14,
-    "nombre": "Orbe del Infinito",
+    "name": "Orbe del Infinito",
     "poder": 27500,
     "rareza": "legendario",
     "precio": 25000.0,
@@ -113,7 +113,7 @@
   },
   {
     "id": 15,
-    "nombre": "Lanza del Crepúsculo",
+    "name": "Lanza del Crepúsculo",
     "poder": 13400,
     "rareza": "epico",
     "precio": 10200.0,
@@ -121,7 +121,7 @@
   },
   {
     "id": 16,
-    "nombre": "Pergamino de Resurrección",
+    "name": "Pergamino de Resurrección",
     "poder": 50000,
     "rareza": "legendario",
     "precio": 30000.0,
@@ -129,7 +129,7 @@
   },
   {
     "id": 17,
-    "nombre": "Anillo del Tiempo",
+    "name": "Anillo del Tiempo",
     "poder": 19800,
     "rareza": "legendario",
     "precio": 21500.0,
@@ -137,7 +137,7 @@
   },
   {
     "id": 18,
-    "nombre": "Arco del Bosque Eterno",
+    "name": "Arco del Bosque Eterno",
     "poder": 6400,
     "rareza": "raro",
     "precio": 3900.0,
@@ -145,7 +145,7 @@
   },
   {
     "id": 19,
-    "nombre": "Túnica del Archimago",
+    "name": "Túnica del Archimago",
     "poder": 10200,
     "rareza": "epico",
     "precio": 8700.0,
@@ -153,10 +153,26 @@
   },
   {
     "id": 20,
-    "nombre": "Poción de Poder Supremo",
+    "name": "Poción de Poder Supremo",
     "poder": 800,
     "rareza": "comun",
     "precio": 60.0,
+    "baja": 0
+  },
+  {
+    "id": 21,
+    "name": "Prueba",
+    "poder": 1,
+    "rareza": "Comun",
+    "precio": 2.0,
+    "baja": 0
+  },
+  {
+    "id": 22,
+    "name": "Prueba 2 ",
+    "poder": 3,
+    "rareza": "Raro",
+    "precio": 4.0,
     "baja": 0
   }
 ]

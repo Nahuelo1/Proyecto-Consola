@@ -22,6 +22,7 @@ namespace AplicacionConsola.Modelo
             this.poder = poder;
             this.rareza = rareza;
             this.precio = decimal.Round(precio,2);
+            this.baja = 0;
         }
 
 

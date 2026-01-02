@@ -76,7 +76,7 @@ namespace AplicacionConsola.Controlador
                
                 if (n != "") { i.name = n; hayCambio = true; }
 
-                if (p > 0 ) { i.precio = p; hayCambio = true; }
+                if (p > 0 ) { i.poder = p; hayCambio = true; }
 
                 if (r != "") { i.rareza = r; hayCambio = true; }
 
@@ -117,7 +117,12 @@ namespace AplicacionConsola.Controlador
         }
 
         
-        
+        public string crearObjeto(string n, int p, string r, decimal pre)
+        {
+            ObjetoEncantado obj = new ObjetoEncantado(listaObjetos.Count()+1,n,p,r,pre);
+            listaObjetos.Add(obj);
+            return obj.ToString();
+        }
 
         
     }

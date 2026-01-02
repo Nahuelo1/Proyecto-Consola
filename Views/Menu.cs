@@ -23,7 +23,6 @@ namespace AplicacionConsola.Views
             bool terminar = false;
             string eleccion;
 
-
             do {
 
                 eleccion = AnsiConsole.Prompt(
@@ -44,7 +43,9 @@ namespace AplicacionConsola.Views
                     case "Ver Objetos de la tienda":
                         objetos.listarObjetos();
                         break;
-                    case "Agregar Objeto": break;
+                    case "Agregar Objeto":
+                        crearObjeto();
+                        break;
                     case "Editar Objeto":
                         AnsiConsole.Clear();
                         buscarObjeto();
@@ -52,8 +53,8 @@ namespace AplicacionConsola.Views
                     case "Guardar Cambios":
                         AnsiConsole.Clear();
                         if (objetos.guardarObjetos())
-                            AnsiConsole.MarkupLine("[Green] ¡Todos los cambios Fueron Guardados Correctamente! [/]");
-                        else AnsiConsole.MarkupLine("[Red] Hubo un error al guar los cambios [/]");
+                            AnsiConsole.Write(new Text("------------------------------------------------------\n¡Todos los cambios Fueron Guardados Correctamente! \n------------------------------------------------------", new Style(Spectre.Console.Color.Green)).Centered());
+                        else AnsiConsole.MarkupLine("[Red] Hubo un error al guardar los cambios [/]");
 
                         break;
                     case "Finalizar": 
@@ -75,10 +76,11 @@ namespace AplicacionConsola.Views
             bool seguirEditandoItem = true;
             string eleccion;
 
-            string nombre="";
-            string rareza="";
-            int poder=0;
-            decimal precio=0;
+
+            string nombre = "";
+            string rareza = "";
+            int poder = 0;
+            decimal precio = 0;
 
             objetos.listarOpciones();
 
@@ -148,6 +150,78 @@ namespace AplicacionConsola.Views
                 }
             } while (!encontrado);
             
+
+        }
+
+        public void crearObjeto()
+        {
+            string objetoCreado = "";
+            bool seguirCreandoItem = true;
+
+
+            string nombre = "";
+            string rareza = "";
+            int poder = 0;
+            decimal precio = 0;
+
+
+            
+                
+            do
+            {
+                var inputNombre = new TextPrompt<string>("Indique el [green]Nombre[/]?")
+                                .Validate(input =>
+                                {
+                                    if (input.Equals(""))
+                                        return ValidationResult.Error("[Red] Error! [/] Nombre Incorrecto");
+
+                                    if (input.Length < 4)
+                                    {
+                                        return ValidationResult.Error("[Red] Error! [/] El nombre debe tener mas de 3 caracteres");
+                                    }
+
+                                    return ValidationResult.Success();
+                                });
+                
+                nombre = AnsiConsole.Prompt(inputNombre);
+                
+                rareza = AnsiConsole.Prompt(
+                    new SelectionPrompt<String>()
+                    .Title("[Yellow]Elija la rareza[/]")
+                    .AddChoices(
+                        "Comun",
+                        "Poco Comun",
+                        "Raro",
+                        "Epico",
+                        "Legendario"
+                    ));
+
+                var inputPoder = new TextPrompt<int>("Indique el [green]Poder[/]?")
+                                .Validate(inputPrecio =>
+                                    inputPrecio > 0,
+                                    "[Red] ¡Error! [/] El poder debe ser mayor a 0"
+                                );
+                poder = AnsiConsole.Prompt(inputPoder);
+
+
+                var inputPrecio = new TextPrompt<decimal>("Indique el [green]Precio[/]?")
+                                .Validate(inputPrecio =>
+                                    inputPrecio > 0,
+                                    "[Red] ¡Error! [/] El precio debe ser mayor a 0"
+                                );
+
+                precio = AnsiConsole.Prompt(inputPrecio);
+
+                objetoCreado = objetos.crearObjeto(nombre, poder, rareza, precio);
+
+                AnsiConsole.MarkupLine("[Green] Objeto creado correctamente [/] \n" + objetoCreado);
+
+
+                seguirCreandoItem = AnsiConsole.Confirm("¿Desea seguir editando el item?");
+
+            } while (seguirCreandoItem);
+             
+
 
         }
     }
