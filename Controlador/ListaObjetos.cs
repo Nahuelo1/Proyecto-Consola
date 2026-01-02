@@ -42,7 +42,7 @@ namespace AplicacionConsola.Controlador
             AnsiConsole.Write(tablaObjetos);
         }
 
-        public void listarOpciones()
+        public Table listarOpciones()
         {
 
             var tablaObjetos = new Table()
@@ -53,17 +53,20 @@ namespace AplicacionConsola.Controlador
 
             foreach (ObjetoEncantado item in listaObjetos)
             {
+                if(item.baja == 0)
                 tablaObjetos.AddRow(item.id.ToString(), item.name);
             }
 
-            AnsiConsole.Write(tablaObjetos);
+            return tablaObjetos;
         }
 
         public bool buscarObjeto(int val)
         {
             if(diccionarioObjetos.TryGetValue(val, out ObjetoEncantado i)) {  
-                AnsiConsole.WriteLine(i.ToString()); 
-                return true; 
+                if(i.baja == 0) {
+                    AnsiConsole.WriteLine(i.ToString()); 
+                    return true;
+                }
             } 
             return false;
         }
@@ -116,7 +119,7 @@ namespace AplicacionConsola.Controlador
             return guardado;
         }
 
-        
+
         public string crearObjeto(string n, int p, string r, decimal pre)
         {
             ObjetoEncantado obj = new ObjetoEncantado(listaObjetos.Count()+1,n,p,r,pre);
@@ -124,6 +127,39 @@ namespace AplicacionConsola.Controlador
             return obj.ToString();
         }
 
+
+        public int totalItems()
+        {
+            int i = 0; 
+            foreach(ObjetoEncantado obj in listaObjetos)
+            {
+                if(obj.baja == 0)
+                {
+                    i++;
+                }
+            }  
+            return i;
+        }
+        
+        public bool buscarAndEliminar(int id)
+        {
+            if(diccionarioObjetos.TryGetValue(id, out ObjetoEncantado item)){
+                if(item.baja == 0)
+                {
+                    item.baja = 1;
+                    diccionarioObjetos[id] = item;
+
+                    int index = listaObjetos.IndexOf(item);
+                    if (index != -1)
+                    {
+                        listaObjetos[index] = item;
+                    }
+
+                    return true;
+                }
+            }
+            return false;
+        }
         
     }
 }

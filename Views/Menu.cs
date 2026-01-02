@@ -44,11 +44,19 @@ namespace AplicacionConsola.Views
                         objetos.listarObjetos();
                         break;
                     case "Agregar Objeto":
+
+                        AnsiConsole.Clear();
                         crearObjeto();
                         break;
+                    case "Sacar Objeto":
+
+                        AnsiConsole.Clear();
+                        sacarObjeto();
+
+                        ; break;
                     case "Editar Objeto":
                         AnsiConsole.Clear();
-                        buscarObjeto();
+                        modificarObjeto();
                         break;
                     case "Guardar Cambios":
                         AnsiConsole.Clear();
@@ -71,7 +79,7 @@ namespace AplicacionConsola.Views
 
         }
 
-        public void buscarObjeto() {
+        public void modificarObjeto() {
             bool encontrado = false;
             bool seguirEditandoItem = true;
             string eleccion;
@@ -82,8 +90,8 @@ namespace AplicacionConsola.Views
             int poder = 0;
             decimal precio = 0;
 
-            objetos.listarOpciones();
-
+            var tabla = objetos.listarOpciones();
+            AnsiConsole.Write(tabla);
             do{
             int idObjeto = AnsiConsole.Ask<int>("[Yellow]Porfavor, introduzca el ID del objeto que desea editar (o 0 para salir)[/]");
                 
@@ -224,5 +232,36 @@ namespace AplicacionConsola.Views
 
 
         }
+    
+        public void sacarObjeto()
+        {
+            var tabla = objetos.listarOpciones();
+            int totalItems = objetos.totalItems();
+            AnsiConsole.Write(tabla);
+            var input = new TextPrompt<int>("Indique el [green]Poder[/]?")
+                                .Validate(inputId =>
+                                    {
+                                        if (inputId < 0 || inputId > totalItems)
+                                        {
+                                            
+                                            return ValidationResult.Error("[Red] ¡Error! [/] Coloque un valor correcto");
+
+                                        }
+                                    
+                                        else
+                                            if (!objetos.buscarAndEliminar(inputId))
+                                            {
+                                                return ValidationResult.Error("[Red] ¡Error! [/] Este objeto ya fue eliminado");
+                                            }
+                                        return ValidationResult.Success();
+                                    }
+                                );
+            int idEliminar = AnsiConsole.Prompt(input);
+
+            AnsiConsole.Write(new Text("------------------------------------------------------\n¡Objeto Eliminado Exitosamente! \n------------------------------------------------------", new Style(Spectre.Console.Color.Green)).Centered());
+
+
+        }
     }
+
 }

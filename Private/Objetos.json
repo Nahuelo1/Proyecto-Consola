@@ -165,7 +165,7 @@
     "poder": 1,
     "rareza": "Comun",
     "precio": 2.0,
-    "baja": 0
+    "baja": 1
   },
   {
     "id": 22,
@@ -173,6 +173,6 @@
     "poder": 3,
     "rareza": "Raro",
     "precio": 4.0,
-    "baja": 0
+    "baja": 1
   }
 ]
