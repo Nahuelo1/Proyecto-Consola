@@ -20,7 +20,7 @@ namespace AplicacionConsola.Views
 
         public void iniciarApp()
         {
-            bool termianr = false;
+            bool terminar = false;
             string eleccion;
 
 
@@ -40,18 +40,24 @@ namespace AplicacionConsola.Views
                     );
 
                 switch (eleccion){
+
                     case "Ver Objetos de la tienda":
                         objetos.listarObjetos();
                         break;
-                    case "": break;
+                    case "Agregar Objeto": break;
                     case "Editar Objeto":
+                        AnsiConsole.Clear();
                         buscarObjeto();
                         break;
                     case "Guardar Cambios":
-                        objetos.guardarObjetos(); 
+                        AnsiConsole.Clear();
+                        if (objetos.guardarObjetos())
+                            AnsiConsole.MarkupLine("[Green] ¡Todos los cambios Fueron Guardados Correctamente! [/]");
+                        else AnsiConsole.MarkupLine("[Red] Hubo un error al guar los cambios [/]");
+
                         break;
                     case "Finalizar": 
-                        termianr = true; 
+                        terminar = true; 
                         break;
 
                     default: 
@@ -59,8 +65,7 @@ namespace AplicacionConsola.Views
                         AnsiConsole.MarkupLine("[Red] Presione un valor correcto [/]");  
                         break;
                 }
-                AnsiConsole.Clear();
-            } while ( !termianr );
+            } while ( !terminar );
 
 
         }
@@ -70,10 +75,10 @@ namespace AplicacionConsola.Views
             bool seguirEditandoItem = true;
             string eleccion;
 
-            string nombre;
-            string rareza;
-            int poder;
-            decimal precio;
+            string nombre="";
+            string rareza="";
+            int poder=0;
+            decimal precio=0;
 
             objetos.listarOpciones();
 
@@ -137,7 +142,7 @@ namespace AplicacionConsola.Views
 
 
                             //Guardamos las modificaciones
-                            objetos.modificarObjeto();
+                            objetos.modificarObjeto(idObjeto,nombre,poder,rareza, precio);
                         } while (seguirEditandoItem);
                     }
                 }

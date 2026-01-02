@@ -29,6 +29,11 @@ namespace ProyectoEximoConsola
      
             inicio.iniciarApp();
 
+            var fin = new Text("#####################################################\n" +
+                                "#------- !Gracias Vuelvas Prontoss! -------#\n" +
+                                "#####################################################\n", new Style(foreground: Color.Yellow)).Centered();
+            AnsiConsole.Write(fin);
+
         }
     }
 }

@@ -65,17 +65,52 @@ namespace AplicacionConsola.Controlador
             return false;
         }
 
-        public void modificarObjeto()
+        public void modificarObjeto(int id, string n, int p, string r, decimal pre)
         {
+            bool hayCambio = false;
+            if (diccionarioObjetos.TryGetValue(id, out ObjetoEncantado i))
+            {
+               
+                if (n != "") { i.name = n; hayCambio = true; }
+
+                if (p > 0 ) { i.precio = p; hayCambio = true; }
+
+                if (r != "") { i.rareza = r; hayCambio = true; }
+
+                if (pre > 0) { i.precio = pre; hayCambio = true; }
+
+                if (hayCambio)
+                {
+                    //Si hubo cambio modifico el objeto en diccionario y lista
+                    diccionarioObjetos[id] = i; 
+
+                    int index = listaObjetos.IndexOf(i);
+                    if(index != -1)
+                    {
+                        listaObjetos[index] = i;
+                    }
+
+
+                }
+                else
+                {
+                    AnsiConsole.MarkupLine("[Red] No hubo cambios registrados [/]");
+                }
+            }
+
 
         }
 
-        public void guardarObjetos()
+        public bool guardarObjetos()
         {
-            objetos.guardar(listaObjetos);
+            bool guardado = false;
+            //Mandamos la lista para actualizar la bd
+            guardado = objetos.guardar(listaObjetos);
+
             //Recuperamos la nueva lista de objetos guardada
             listaObjetos = objetos.recuperarObjetos();
             diccionarioObjetos = listaObjetos.ToDictionary(x => x.id);
+            return guardado;
         }
 
         

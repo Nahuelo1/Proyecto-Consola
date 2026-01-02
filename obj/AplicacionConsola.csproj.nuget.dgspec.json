@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\noliva\\Desktop\\Nahuel\\CURSO BASICO C#\\AplicacionConsola\\AplicacionConsola.csproj": {}
+    "C:\\Users\\noliva\\source\\repos\\NewRepo\\Proyecto-Consola\\AplicacionConsola.csproj": {}
   },
   "projects": {
-    "C:\\Users\\noliva\\Desktop\\Nahuel\\CURSO BASICO C#\\AplicacionConsola\\AplicacionConsola.csproj": {
+    "C:\\Users\\noliva\\source\\repos\\NewRepo\\Proyecto-Consola\\AplicacionConsola.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\noliva\\Desktop\\Nahuel\\CURSO BASICO C#\\AplicacionConsola\\AplicacionConsola.csproj",
+        "projectUniqueName": "C:\\Users\\noliva\\source\\repos\\NewRepo\\Proyecto-Consola\\AplicacionConsola.csproj",
         "projectName": "AplicacionConsola",
-        "projectPath": "C:\\Users\\noliva\\Desktop\\Nahuel\\CURSO BASICO C#\\AplicacionConsola\\AplicacionConsola.csproj",
+        "projectPath": "C:\\Users\\noliva\\source\\repos\\NewRepo\\Proyecto-Consola\\AplicacionConsola.csproj",
         "packagesPath": "C:\\Users\\noliva\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\noliva\\Desktop\\Nahuel\\CURSO BASICO C#\\AplicacionConsola\\obj\\",
+        "outputPath": "C:\\Users\\noliva\\source\\repos\\NewRepo\\Proyecto-Consola\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

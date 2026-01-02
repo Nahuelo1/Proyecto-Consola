@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6Ru6ZU1YEL8=",
+  "dgSpecHash": "+jOhtF24q+A=",
   "success": true,
-  "projectFilePath": "C:\\Users\\noliva\\Desktop\\Nahuel\\CURSO BASICO C#\\AplicacionConsola\\AplicacionConsola.csproj",
+  "projectFilePath": "C:\\Users\\noliva\\source\\repos\\NewRepo\\Proyecto-Consola\\AplicacionConsola.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\noliva\\.nuget\\packages\\newtonsoft.json\\13.0.4\\newtonsoft.json.13.0.4.nupkg.sha512",
     "C:\\Users\\noliva\\.nuget\\packages\\spectre.console\\0.54.0\\spectre.console.0.54.0.nupkg.sha512",

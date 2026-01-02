@@ -12,7 +12,7 @@ namespace AplicacionConsola.Controlador
 {
     internal class RecoverObjetos
     {
-        private static string _path = @"C:\Users\noliva\Desktop\Nahuel\CURSO BASICO C#\AplicacionConsola\Private\Objetos.json";
+        private static string _path = @"C:\Users\noliva\source\repos\NewRepo\Proyecto-Consola\Private\Objetos.json";
 
         public RecoverObjetos() { }
 
@@ -38,20 +38,31 @@ namespace AplicacionConsola.Controlador
 
         }
 
-        public void guardar(List<ObjetoEncantado> objetos)
+        public bool guardar(List<ObjetoEncantado> objetos)
         {
-            //Pasamos el json a texto plano
-            string pasarString = JsonConvert.SerializeObject(objetos.ToArray(), Formatting.Indented);
-            
+            bool gaurdado = false;
             try
             {
-                //Creamos el archivo .json en el escritorio
-                File.WriteAllText(_path, pasarString);
+                //Pasamos el json a texto plano
+                string pasarString = JsonConvert.SerializeObject(objetos.ToArray(), Formatting.Indented);
+                try
+                {
+                    //Creamos el archivo .json en el escritorio
+                    File.WriteAllText(_path, pasarString);
+                    gaurdado = true;
+                }
+                catch
+                {
+                    AnsiConsole.MarkupLine("[Reed] Ha ocurrido un error a la hora de guardar los cambios [/]");
+                }
+
+                
             }
-            catch
-            {
-                AnsiConsole.MarkupLine("[Reed] Ha ocurrido un error a la hora de guardar los cambios [/]");
+            catch (Exception ex) {
+                AnsiConsole.MarkupLine("[Reed] Ha ocurrido un error a la hora de transcribir los cambios [/]");
             }
+            return gaurdado;
+            
         }
     }
 }
