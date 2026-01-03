@@ -10,16 +10,16 @@ namespace ProyectoEximoConsola
         static void Main(string[] arg)
         {
             Menu inicio = new Menu();
-            //AnsiConsole.Progress().Start(fun =>
-            //{
-            //    var tarea = fun.AddTask("[blue]Cargando aplicación[/]");
+            AnsiConsole.Progress().Start(fun =>
+            {
+                var tarea = fun.AddTask("[blue]Cargando aplicación[/]");
 
-            //    while (!fun.IsFinished)
-            //    {
-            //        tarea.Increment(2);
-            //        Thread.Sleep(50);
-            //    }
-            //});
+                while (!fun.IsFinished)
+                {
+                    tarea.Increment(2);
+                    Thread.Sleep(50);
+                }
+            });
 
             AnsiConsole.Clear();
             var intro = new Text("#####################################################\n" +

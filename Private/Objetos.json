@@ -174,5 +174,21 @@
     "rareza": "Raro",
     "precio": 4.0,
     "baja": 1
+  },
+  {
+    "id": 23,
+    "name": "Ragnarok Helmmet",
+    "poder": 5000,
+    "rareza": "Legendario",
+    "precio": 2000.33,
+    "baja": 0
+  },
+  {
+    "id": 24,
+    "name": "Pistal Eximiano Super",
+    "poder": 1000,
+    "rareza": "Epico",
+    "precio": 30000.0,
+    "baja": 0
   }
 ]

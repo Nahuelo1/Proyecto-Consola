@@ -41,7 +41,18 @@ namespace AplicacionConsola.Views
                 switch (eleccion){
 
                     case "Ver Objetos de la tienda":
+                        AnsiConsole.Progress().Start(fun =>
+                        {
+                            var tarea = fun.AddTask("[Yellow]Cargando Objetos[/]");
+
+                            while (!fun.IsFinished)
+                            {
+                                tarea.Increment(3);
+                                Thread.Sleep(10);
+                            }
+                        });
                         objetos.listarObjetos();
+                        AnsiConsole.MarkupLine("[Green]¡Objetos cargados correctamente![/]");
                         break;
                     case "Agregar Objeto":
 
@@ -59,6 +70,16 @@ namespace AplicacionConsola.Views
                         modificarObjeto();
                         break;
                     case "Guardar Cambios":
+                        AnsiConsole.Progress().Start(fun =>
+                        {
+                            var tarea = fun.AddTask("[Yellow]Guarndo cambios... Por favor espere[/]");
+
+                            while (!fun.IsFinished)
+                            {
+                                tarea.Increment(1.5);
+                                Thread.Sleep(20);
+                            }
+                        });
                         AnsiConsole.Clear();
                         if (objetos.guardarObjetos())
                             AnsiConsole.Write(new Text("------------------------------------------------------\n¡Todos los cambios Fueron Guardados Correctamente! \n------------------------------------------------------", new Style(Spectre.Console.Color.Green)).Centered());
@@ -177,7 +198,7 @@ namespace AplicacionConsola.Views
                 
             do
             {
-                var inputNombre = new TextPrompt<string>("Indique el [green]Nombre[/]?")
+                var inputNombre = new TextPrompt<string>("Indique el [green]Nombre[/]")
                                 .Validate(input =>
                                 {
                                     if (input.Equals(""))
@@ -204,7 +225,7 @@ namespace AplicacionConsola.Views
                         "Legendario"
                     ));
 
-                var inputPoder = new TextPrompt<int>("Indique el [green]Poder[/]?")
+                var inputPoder = new TextPrompt<int>("Indique el [green]Poder[/]")
                                 .Validate(inputPrecio =>
                                     inputPrecio > 0,
                                     "[Red] ¡Error! [/] El poder debe ser mayor a 0"
@@ -212,7 +233,7 @@ namespace AplicacionConsola.Views
                 poder = AnsiConsole.Prompt(inputPoder);
 
 
-                var inputPrecio = new TextPrompt<decimal>("Indique el [green]Precio[/]?")
+                var inputPrecio = new TextPrompt<decimal>("Indique el [green]Precio[/]")
                                 .Validate(inputPrecio =>
                                     inputPrecio > 0,
                                     "[Red] ¡Error! [/] El precio debe ser mayor a 0"
@@ -225,7 +246,7 @@ namespace AplicacionConsola.Views
                 AnsiConsole.MarkupLine("[Green] Objeto creado correctamente [/] \n" + objetoCreado);
 
 
-                seguirCreandoItem = AnsiConsole.Confirm("¿Desea seguir editando el item?");
+                seguirCreandoItem = AnsiConsole.Confirm("¿Desea agregar otro objeto?");
 
             } while (seguirCreandoItem);
              
